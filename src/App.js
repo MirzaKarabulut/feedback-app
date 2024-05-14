@@ -3,15 +3,20 @@ import Header from "./components/header";
 import FeedbackList from "./components/feedbackList";
 import { useState } from "react";
 import feedbackData from "./data/feedbackData";
+import FeedbackStats from "./components/feedbackStats";
+
 function App() {
   const [feedback, setFeedback] = useState(feedbackData);
   const deleteFeedback = (id) => { 
-    console.log("app", id);
+    if (window.confirm("Are you sure you want to delete this feedback?")) {
+      setFeedback(feedback.filter((item)=> item.id !== id))
+    }
   }
   return (
     <>
     < Header />
-    <div className="container">
+      <div className="container">
+        <FeedbackStats feedback={ feedback} />
       < FeedbackList feedback = {feedback} handleDelete={deleteFeedback} />
     </div>
     </>
