@@ -103,7 +103,7 @@ npm install
 ### Run
 
 ```bash
-npm run dev
+npm start
 ```
 
 This will run JSON-server on port :5000 and React on port :3000
